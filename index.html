@@ -3,261 +3,498 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Justin Mai — Academic Homepage</title>
+<meta name="description" content="Justin Mai — PhD Research Fellow in the Mitchell Lab, University of Idaho. Neuroinflammation, retinal regeneration, and glia–neuron interactions.">
+<title>Justin Mai — PhD Research Fellow, University of Idaho</title>
 <style>
-  :root{
-    --brand-accent: #F1B300;
-    --brand-on-accent: #000000;
-    --brand-ink: #906900;
-    --bg:#ffffff;
-    --surface:#f7f6f3;
-    --ink:#1a1a1a;
-    --muted:#5f5c55;
-    --line:#e6e3dc;
-    --maxw:900px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:17px;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-  }
-  .sans{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* ============ Reset & Tokens ============ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ---------- Header ---------- */
-  .topbar{background:var(--brand-accent);color:var(--brand-on-accent);}
-  .topbar-inner{
-    max-width:var(--maxw);margin:0 auto;padding:10px 20px;
-    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  }
-  .topbar .org{font-weight:700;letter-spacing:.01em;font-size:15px;}
-  .topbar .tag{font-size:13px;font-weight:600;opacity:.85;}
-
-  .hero{
-    max-width:var(--maxw);margin:0 auto;padding:34px 20px 30px;
-    display:flex;align-items:center;gap:30px;
-    border-bottom:4px solid var(--brand-accent);
-  }
-  .photo{
-    flex:0 0 180px;width:180px;height:180px;
-    border-radius:50%;overflow:hidden;
-    border:3px solid var(--brand-accent);
-    box-shadow:0 4px 14px rgba(0,0,0,.12);
-  }
-  .photo img{width:100%;height:100%;object-fit:cover;display:block;}
-  .hero-text{flex:1;min-width:0;}
-  .hero-text h1{
-    margin:0 0 6px;font-size:2.4rem;line-height:1.05;letter-spacing:-.01em;font-weight:700;
-  }
-  .hero-text .role{
-    margin:0;color:var(--brand-ink);font-size:1.15rem;font-weight:600;
-  }
-  .hero-text .affil{margin:4px 0 0;color:var(--muted);font-size:.98rem;}
-
-  /* ---------- Nav ---------- */
-  nav{
-    position:sticky;top:0;z-index:20;background:var(--bg);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{
-    max-width:var(--maxw);margin:0 auto;padding:0 20px;
-    display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin;
-  }
-  .nav-inner a{
-    display:inline-block;padding:12px 14px;text-decoration:none;color:var(--ink);
-    font-size:.82rem;font-weight:600;letter-spacing:.02em;white-space:nowrap;
-    border-bottom:3px solid transparent;transition:color .15s,border-color .15s;
-  }
-  .nav-inner a:hover{color:var(--brand-ink);}
-  .nav-inner a.active{color:var(--brand-ink);border-bottom-color:var(--brand-accent);}
-
-  /* ---------- Main ---------- */
-  main{max-width:var(--maxw);margin:0 auto;padding:8px 20px 40px;}
-  section{padding:34px 0;border-bottom:1px solid var(--line);}
-  section:last-of-type{border-bottom:none;}
-  h2{
-    font-size:1.5rem;margin:0 0 18px;padding-bottom:8px;
-    border-bottom:2px solid var(--brand-accent);color:var(--brand-ink);
-    font-weight:700;letter-spacing:-.01em;
-  }
-  h3{font-size:1.12rem;margin:26px 0 12px;color:var(--ink);font-weight:700;}
-  p{margin:0 0 14px;}
-  a{color:var(--brand-ink);text-decoration:underline;text-underline-offset:2px;}
-  a:hover{color:var(--brand-accent);}
-  strong{font-weight:700;}
-
-  /* Bio */
-  .bio p{font-size:1.06rem;}
-
-  /* Research interests */
-  .interests{list-style:none;margin:0;padding:0;}
-  .interests li{
-    position:relative;padding:12px 0 12px 26px;border-bottom:1px solid var(--line);
-  }
-  .interests li:last-child{border-bottom:none;}
-  .interests li::before{
-    content:"";position:absolute;left:0;top:19px;width:12px;height:12px;
-    background:var(--brand-accent);
-  }
-  .interests li strong{color:var(--brand-ink);}
-
-  /* Education */
-  .edu{list-style:none;margin:0;padding:0;}
-  .edu li{
-    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-    padding:12px 0;border-bottom:1px solid var(--line);
-  }
-  .edu li:last-child{border-bottom:none;}
-  .edu .deg{font-weight:700;}
-  .edu .inst{color:var(--muted);}
-  .edu .dates{
-    font-size:.82rem;font-weight:600;color:var(--brand-on-accent);
-    background:var(--brand-accent);padding:2px 10px;border-radius:2px;white-space:nowrap;
-    align-self:flex-start;
+  :root {
+    --accent: #F1B300;
+    --accent-dark: #C99400;
+    --ink: #1A1A1A;
+    --muted: #5F5C55;
+    --ink-accent: #906900;
+    --bg: #FFFFFF;
+    --surface: #F9F8F5;
+    --line: #E8E5DE;
+    --line-light: #F1EFEA;
+    --radius: 6px;
+    --maxw: 880px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+    --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+    --font-serif: Georgia, "Times New Roman", serif;
+    --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
-  /* Research experience */
-  .exp{margin:0;padding:0;list-style:none;}
-  .exp-item{
-    position:relative;padding:18px 0 18px 22px;border-left:3px solid var(--brand-accent);
-    border-bottom:1px solid var(--line);
-  }
-  .exp-item:last-child{border-bottom:none;}
-  .exp-item .role{font-size:1.08rem;font-weight:700;color:var(--brand-ink);}
-  .exp-item .meta{margin:4px 0 8px;color:var(--muted);font-size:.95rem;}
-  .exp-item .proj{margin:0 0 6px;}
-  .exp-item .proj em{color:var(--ink);}
-  .exp-item .pi{margin:0;font-size:.95rem;}
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 
-  /* Publications */
-  .pub{
-    padding:14px 0 14px 20px;border-left:3px solid var(--brand-accent);
-    border-bottom:1px solid var(--line);
-  }
-  .pub:last-child{border-bottom:none;}
-  .pub .cite{margin:0 0 6px;}
-  .pub .doi{font-size:.92rem;}
-  .pub .note{margin:6px 0 0;font-size:.92rem;color:var(--muted);}
-  .pub .note em{color:var(--ink);}
-
-  /* Fellowships */
-  .awards{list-style:none;margin:0;padding:0;}
-  .awards li{
-    display:flex;justify-content:space-between;gap:16px;align-items:baseline;
-    padding:11px 0;border-bottom:1px solid var(--line);
-  }
-  .awards li:last-child{border-bottom:none;}
-  .awards .name{font-weight:700;}
-  .awards .sub{color:var(--muted);font-weight:400;font-size:.92rem;}
-  .awards .amt{
-    font-size:.85rem;font-weight:700;color:var(--brand-on-accent);
-    background:var(--brand-accent);padding:2px 10px;border-radius:2px;white-space:nowrap;
-  }
-  .docs{
-    margin:10px 0 4px;padding:12px 0 12px 20px;
-    border-left:3px solid var(--brand-accent);
-  }
-  .docs .docs-title{
-    font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
-    color:var(--brand-ink);margin:0 0 10px;
-  }
-  .docs ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px;}
-  .doc-btn{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--brand-accent);color:var(--brand-on-accent);
-    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size:.85rem;font-weight:700;text-decoration:none;
-    padding:8px 14px;border-radius:3px;transition:filter .15s;
-  }
-  .doc-btn:hover{filter:brightness(.94);color:var(--brand-on-accent);}
-  .doc-btn svg{flex:0 0 auto;}
-  .award-note{
-    margin:8px 0 0;font-size:.92rem;color:var(--muted);
-    padding-left:20px;border-left:3px solid var(--line);
-  }
-  .award-note em{color:var(--ink);}
-
-  /* Skills */
-  .skills{margin:0;padding:0;list-style:none;}
-  .skill-group{
-    display:grid;grid-template-columns:230px 1fr;gap:16px;
-    padding:13px 0;border-bottom:1px solid var(--line);
-  }
-  .skill-group:last-child{border-bottom:none;}
-  .skill-group .label{font-weight:700;color:var(--brand-ink);}
-  .skill-group .items{margin:0;}
-
-  /* Teaching */
-  .teach{list-style:none;margin:0;padding:0;}
-  .teach li{
-    position:relative;padding:12px 0 12px 26px;border-bottom:1px solid var(--line);
-  }
-  .teach li:last-child{border-bottom:none;}
-  .teach li::before{
-    content:"";position:absolute;left:0;top:19px;width:12px;height:12px;
-    background:var(--brand-accent);
-  }
-  .teach .t{font-weight:700;}
-  .teach .d{color:var(--muted);font-size:.95rem;}
-
-  /* Contact */
-  .contact{
-    background:var(--surface);border-top:4px solid var(--brand-accent);
-    border-bottom:none;margin-top:8px;
-  }
-  .contact h2{border-bottom-color:var(--brand-accent);}
-  .contact ul{list-style:none;margin:0;padding:0;}
-  .contact li{
-    display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);
-  }
-  .contact li:last-child{border-bottom:none;}
-  .contact .k{
-    flex:0 0 150px;font-weight:700;font-size:.85rem;letter-spacing:.02em;
-    color:var(--brand-ink);text-transform:uppercase;
-  }
-  .contact .v{flex:1;}
-
-  /* Footer */
-  footer{
-    background:var(--brand-accent);color:var(--brand-on-accent);
-    text-align:center;padding:18px 20px;font-size:.9rem;font-weight:600;
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* ---------- Responsive ---------- */
-  @media (max-width:640px){
-    body{font-size:16px;}
-    .hero{flex-direction:column;align-items:center;text-align:center;gap:20px;}
-    .hero-text{text-align:center;}
-    .hero-text h1{font-size:2rem;}
-    .skill-group{grid-template-columns:1fr;gap:4px;}
-    .contact li{flex-direction:column;gap:2px;}
-    .contact .k{flex-basis:auto;}
-    .awards li{flex-direction:column;align-items:flex-start;gap:6px;}
+  a { color: var(--ink-accent); text-decoration: underline; text-underline-offset: 3px; transition: color .15s; }
+  a:hover { color: var(--accent-dark); }
+
+  .sans { font-family: var(--font-sans); }
+
+  /* ============ Banner ============ */
+  .banner {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    position: relative;
+  }
+  .banner img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  .banner::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to top, var(--bg), transparent);
+    pointer-events: none;
   }
 
-  /* ---------- Motion ---------- */
-  @media (prefers-reduced-motion:no-preference){
-    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
-    .reveal.in{opacity:1;transform:none;}
-    .hero-text h1{overflow:hidden;}
-    .hero-text h1 .mask{display:inline-block;transform:translateY(110%);animation:rise .8s .1s cubic-bezier(.2,.7,.2,1) forwards;}
-    @keyframes rise{to{transform:translateY(0);}}
+  /* ============ Top Bar ============ */
+  .topbar {
+    background: linear-gradient(135deg, #F1B300 0%, #E5A500 100%);
+    color: #000;
+    font-family: var(--font-sans);
   }
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none!important;transition:none!important;}
-    .reveal{opacity:1;transform:none;}
+  .topbar-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .topbar .tag { opacity: .8; font-weight: 500; }
+
+  /* ============ Hero ============ */
+  .hero {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    position: relative;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+    right: 24px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    border-radius: 2px;
+  }
+  .photo {
+    flex: 0 0 170px;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent);
+    box-shadow: var(--shadow-md), 0 0 0 6px rgba(241,179,0,.08);
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .hero-text { flex: 1; min-width: 0; }
+  .hero-text h1 {
+    font-size: 2.6rem;
+    line-height: 1.08;
+    letter-spacing: -.02em;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .hero-text .role {
+    color: var(--ink-accent);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .hero-text .affil {
+    color: var(--muted);
+    font-size: .95rem;
+  }
+
+  /* ============ Navigation ============ */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    font-family: var(--font-sans);
+  }
+  .nav-inner a {
+    display: inline-block;
+    padding: 13px 16px;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+  }
+  .nav-inner a:hover { color: var(--ink-accent); }
+  .nav-inner a.active { color: var(--ink-accent); border-bottom-color: var(--accent); }
+
+  /* ============ Main ============ */
+  main { max-width: var(--maxw); margin: 0 auto; padding: 8px 24px 48px; }
+
+  section { padding: 36px 0; border-bottom: 1px solid var(--line-light); }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-size: 1.45rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    color: var(--ink-accent);
+    font-weight: 700;
+    letter-spacing: -.01em;
+  }
+  h3 {
+    font-size: 1.08rem;
+    margin: 28px 0 14px;
+    color: var(--ink);
+    font-weight: 700;
+  }
+  p { margin-bottom: 14px; }
+  strong { font-weight: 700; }
+
+  /* ============ Bio ============ */
+  .bio p { font-size: 1.06rem; line-height: 1.75; }
+
+  /* ============ Research Interests ============ */
+  .interests { list-style: none; }
+  .interests li {
+    position: relative;
+    padding: 14px 0 14px 28px;
+    border-bottom: 1px solid var(--line-light);
+  }
+  .interests li:last-child { border-bottom: none; }
+  .interests li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .interests li strong { color: var(--ink-accent); }
+
+  /* ============ Education ============ */
+  .edu { list-style: none; }
+  .edu li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line-light);
+  }
+  .edu li:last-child { border-bottom: none; }
+  .edu .deg { font-weight: 700; margin-bottom: 2px; }
+  .edu .inst { color: var(--muted); font-size: .93rem; }
+  .edu .dates {
+    font-family: var(--font-sans);
+    font-size: .78rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    padding: 3px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ============ Experience ============ */
+  .exp { list-style: none; }
+  .exp-item {
+    position: relative;
+    padding: 20px 0 20px 24px;
+    border-left: 3px solid var(--accent);
+    border-bottom: 1px solid var(--line-light);
+    transition: border-color .2s;
+  }
+  .exp-item:hover { border-left-color: var(--ink-accent); }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-item .role { font-size: 1.06rem; font-weight: 700; color: var(--ink-accent); }
+  .exp-item .meta { margin: 4px 0 10px; color: var(--muted); font-size: .92rem; }
+  .exp-item .proj { margin-bottom: 6px; font-size: .98rem; }
+  .exp-item .proj em { font-style: italic; }
+  .exp-item .pi { font-size: .92rem; color: var(--muted); }
+  .exp-item .pi-name { margin-top: 2px; font-weight: 600; color: var(--ink-accent); }
+
+  /* ============ Publications ============ */
+  .pub {
+    padding: 16px 0 16px 20px;
+    border-left: 3px solid var(--accent);
+    border-bottom: 1px solid var(--line-light);
+    transition: background .15s;
+    margin-left: -20px;
+    padding-right: 12px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .pub:hover { background: var(--surface); }
+  .pub:last-child { border-bottom: none; }
+  .pub .cite { font-size: .98rem; margin-bottom: 8px; line-height: 1.65; }
+  .pub .doi { font-size: .9rem; margin-bottom: 6px; }
+  .pub .note { font-size: .9rem; color: var(--muted); }
+  .pub .note em { color: var(--ink); }
+
+  /* ============ Awards & Fellowships ============ */
+  .awards { list-style: none; }
+  .awards li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-light);
+  }
+  .awards li:last-child { border-bottom: 1px solid var(--line-light); }
+  .awards-group { margin-top: 0; }
+  .awards .name { font-weight: 700; }
+  .awards .sub { color: var(--muted); font-weight: 400; font-size: .9rem; }
+  .awards .amt {
+    font-family: var(--font-sans);
+    font-size: .82rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    padding: 3px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .docs {
+    margin: 16px 0 8px;
+    padding: 16px 0 16px 20px;
+    border-left: 3px solid var(--accent);
+  }
+  .docs .docs-title {
+    font-family: var(--font-sans);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-accent);
+    margin-bottom: 12px;
+  }
+  .docs ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+  .doc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #000;
+    font-family: var(--font-sans);
+    font-size: .83rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 9px 16px;
+    border-radius: 4px;
+    transition: background .15s, transform .15s, box-shadow .15s;
+  }
+  .doc-btn:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); color: #000; }
+  .doc-btn svg { flex-shrink: 0; }
+
+  .award-note {
+    margin-top: 10px;
+    font-size: .9rem;
+    color: var(--muted);
+    padding-left: 20px;
+    border-left: 3px solid var(--line);
+    line-height: 1.6;
+  }
+  .award-note em { color: var(--ink); }
+
+  .total-awarded {
+    margin-top: 24px;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .total-awarded .total-label {
+    font-family: var(--font-sans);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .total-awarded .total-amount {
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--ink-accent);
+  }
+
+  /* ============ Skills ============ */
+  .skills { list-style: none; }
+  .skill-group {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line-light);
+  }
+  .skill-group:last-child { border-bottom: none; }
+  .skill-group .label { font-weight: 700; color: var(--ink-accent); }
+  .skill-group .items { font-size: .95rem; color: var(--muted); }
+
+  /* ============ Teaching ============ */
+  .teach { list-style: none; }
+  .teach li {
+    position: relative;
+    padding: 14px 0 14px 28px;
+    border-bottom: 1px solid var(--line-light);
+  }
+  .teach li:last-child { border-bottom: none; }
+  .teach li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .teach .t { font-weight: 700; }
+  .teach .d { color: var(--muted); font-size: .93rem; }
+
+  /* ============ Contact ============ */
+  .contact {
+    background: var(--surface);
+    border-bottom: none;
+    margin-top: 12px;
+    border-radius: var(--radius) var(--radius) 0 0;
+    padding: 36px 96px;
+  }
+  .contact h2 { border-bottom: none; padding-bottom: 0; }
+  .contact ul { list-style: none; }
+  .contact li {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-sans);
+  }
+  .contact li:last-child { border-bottom: none; }
+  .contact .k {
+    flex: 0 0 160px;
+    font-weight: 700;
+    font-size: .82rem;
+    letter-spacing: .04em;
+    color: var(--ink-accent);
+    text-transform: uppercase;
+  }
+  .contact .v { flex: 1; }
+
+  /* ============ Footer ============ */
+  footer {
+    background: linear-gradient(135deg, #F1B300 0%, #E5A500 100%);
+    color: #000;
+    text-align: center;
+    padding: 20px 24px;
+    font-family: var(--font-sans);
+    font-size: .88rem;
+    font-weight: 600;
+  }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .banner img { height: 140px; }
+    .hero {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+      padding: 36px 20px 32px;
+    }
+    .hero::after { left: 20px; right: 20px; }
+    .hero-text h1 { font-size: 2rem; }
+    .photo { flex-basis: auto; width: 140px; height: 140px; }
+    .skill-group { grid-template-columns: 1fr; gap: 4px; }
+    .contact li { flex-direction: column; gap: 2px; }
+    .contact { padding: 24px 32px; }
+    .contact .k { flex-basis: auto; }
+    .awards li { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .edu li { flex-direction: column; gap: 6px; }
+    main { padding: 8px 16px 36px; }
+    section { padding: 28px 0; }
+  }
+
+  /* ============ Animations ============ */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
   }
 </style>
 </head>
 <body>
 
+  <div class="banner">
+    <img src="retina%20image.webp" alt="Fluorescence micrograph of a vertebrate retina">
+  </div>
+
   <div class="topbar">
-    <div class="topbar-inner sans">
+    <div class="topbar-inner">
       <span class="org">University of Idaho</span>
       <span class="tag">Academic Homepage</span>
     </div>
@@ -265,17 +502,17 @@
 
   <header class="hero">
     <div class="photo">
-      <img src="https://picsum.photos/seed/justin-mai-profile-headshot/360/360" alt="Portrait of Justin Mai">
+      <img src="Profile%20Picture.jpg" alt="Portrait of Justin Mai">
     </div>
     <div class="hero-text">
-      <h1><span class="mask">Justin Mai</span></h1>
+      <h1>Justin Mai</h1>
       <p class="role">PhD Research Fellow, Mitchell Lab</p>
       <p class="affil">University of Idaho</p>
     </div>
   </header>
 
   <nav aria-label="Section navigation">
-    <div class="nav-inner sans">
+    <div class="nav-inner">
       <a href="#bio">Bio</a>
       <a href="#research">Research</a>
       <a href="#education">Education</a>
@@ -311,21 +548,21 @@
             <div class="deg">Ph.D. in Biological Sciences</div>
             <div class="inst">University of Idaho, Moscow, ID &middot; NSF Graduate Research Fellow</div>
           </div>
-          <span class="dates sans">2024&ndash;present</span>
+          <span class="dates">2024&ndash;present</span>
         </li>
         <li>
           <div>
             <div class="deg">B.S. in Cell &amp; Molecular Biology</div>
             <div class="inst">San Francisco State University</div>
           </div>
-          <span class="dates sans">2022&ndash;2024</span>
+          <span class="dates">2022&ndash;2024</span>
         </li>
         <li>
           <div>
             <div class="deg">A.S. in Biotechnology</div>
             <div class="inst">City College of San Francisco</div>
           </div>
-          <span class="dates sans">2017&ndash;2022</span>
+          <span class="dates">2017&ndash;2022</span>
         </li>
       </ul>
     </section>
@@ -337,19 +574,22 @@
           <div class="role">NSF Graduate Research Fellow</div>
           <div class="meta">University of Idaho, Mitchell Lab &middot; 2024&ndash;present</div>
           <p class="proj">Project: <em>Immunometabolic Profiles Driving Microglial Responses and Functions in the Vertebrate Retina.</em></p>
-          <p class="pi">PhD research on neuroinflammation, microglial activation, and glia&ndash;neuron signaling in retinal disease models. PI: Dr. Diana Mitchell.</p>
+          <p class="pi">PhD research on neuroinflammation, microglial activation, and glia&ndash;neuron signaling in retinal disease models.</p>
+          <p class="pi pi-name">PI: <a href="https://www.mitchelllabuofi.com" target="_blank" rel="noopener">Dr. Diana Mitchell</a></p>
         </li>
         <li class="exp-item">
           <div class="role">NIH-URISE Fellow</div>
           <div class="meta">San Francisco State University, Anastassov Lab &middot; 2022&ndash;2024</div>
           <p class="proj">Project: <em>Structural Diversity of Mitochondria and Quantification of Synaptic Vesicles from Different Neuron Types in the Simplex Retina of Little Skate.</em></p>
-          <p class="pi">Undergraduate research in retinal connectomics, including 3D reconstruction of mitochondria and ribbon synapses. PI: Dr. Ivan Anastassov.</p>
+          <p class="pi">Undergraduate research in retinal connectomics, including 3D reconstruction of mitochondria and ribbon synapses.</p>
+          <p class="pi pi-name">PI: <a href="https://www.anastassovlab.org" target="_blank" rel="noopener">Dr. Ivan Anastassov</a></p>
         </li>
         <li class="exp-item">
           <div class="role">CIRM Research Fellow</div>
           <div class="meta">Vitalant Research Institute, Stem Cell Therapy Core &middot; 2019&ndash;2020</div>
           <p class="proj">Project: <em>Reforming the Enumeration of Clonogenic Frequency Method in Mesenchymal Stromal Cell Population: Extreme Limiting Dilution Assay vs Colony Forming Unit Assay.</em></p>
-          <p class="pi">Optimized stem cell enumeration (ELDA vs. CFU) and cryoprotectant formulation in collaboration with a biotech partner. PI: Dr. Marcus Muench.</p>
+          <p class="pi">Optimized stem cell enumeration (ELDA vs. CFU) and cryoprotectant formulation in collaboration with a biotech partner.</p>
+          <p class="pi pi-name">PI: <a href="https://research.vitalant.org/people/muench" target="_blank" rel="noopener">Dr. Marcus Muench</a></p>
         </li>
       </ul>
     </section>
@@ -370,7 +610,7 @@
 
       <h3>Poster Abstracts</h3>
       <div class="pub">
-        <p class="cite">Mai J, Robles J, Zahirazami S, Rose E, Prasad M, Dibaj P, Hirons C. <em>Structural Diversity of Mitochondria and Quantification of Synaptic Vesicles from Different Neuron Types in the Simplex Retina of Little Skate.</em> ARVO, New Orleans, LA (April 2023).</p>
+        <p class="cite">Mai J, Robles J, Zahirazami S, Rose E, Prasad M, Dibaj P, Hirons C. <a href="https://iovs.arvojournals.org/article.aspx?articleid=2789196" target="_blank" rel="noopener"><em>Structural Diversity of Mitochondria and Quantification of Synaptic Vesicles from Different Neuron Types in the Simplex Retina of Little Skate.</em></a> ARVO, New Orleans, LA (April 2023).</p>
       </div>
       <div class="pub">
         <p class="cite">Mai J, Gilfanova R, Gutierrez A, Medina K, Muench MO. <em>Reforming the Enumeration of Clonogenic Frequency Method in Mesenchymal Stromal Cell Population.</em> CIRM, San Francisco, CA (June 2020).</p>
@@ -382,58 +622,66 @@
       <ul class="awards">
         <li>
           <span class="name">NSF Graduate Research Fellowship <span class="sub">(2024&ndash;2029)</span></span>
-          <span class="amt sans">$159,000</span>
+          <span class="amt">$159,000</span>
         </li>
       </ul>
+
       <div class="docs">
-        <p class="docs-title sans">NSF GRFP &mdash; Application Documents</p>
+        <p class="docs-title">NSF GRFP &mdash; Proposal, Personal Statement, Reviews, Award Offer</p>
         <ul>
-          <li><a class="doc-btn" href="#" title="Placeholder link">
+          <li><a class="doc-btn" href="Graduate%20Research%20Plan%20Statement.pdf">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg>
-            Graduate Research Plan (PDF)</a></li>
-          <li><a class="doc-btn" href="#" title="Placeholder link">
+            NSF Proposal</a></li>
+          <li><a class="doc-btn" href="Justin%20Mai%20Personal%20NSF.pdf">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg>
-            Personal Statement (PDF)</a></li>
-          <li><a class="doc-btn" href="#" title="Placeholder link">
+            NSF Personal Statement</a></li>
+          <li><a class="doc-btn" href="reviews.pdf">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg>
-            Award Offer Letter (PDF)</a></li>
+            NSF Reviews</a></li>
+          <li><a class="doc-btn" href="offer-letter.html" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg>
+            NSF Award Offer</a></li>
         </ul>
       </div>
 
-      <ul class="awards" style="margin-top:14px;">
+      <ul class="awards awards-group">
         <li>
           <span class="name">NIH-URISE Fellowship <span class="sub">, SFSU (2023&ndash;24)</span></span>
-          <span class="amt sans">$14,300</span>
+          <span class="amt">$14,300</span>
         </li>
         <li>
           <span class="name">Genentech Foundation Fellowship <span class="sub">, SFSU (2022&ndash;23)</span></span>
-          <span class="amt sans">$13,200</span>
+          <span class="amt">$13,200</span>
         </li>
         <li>
           <span class="name">CIRM Stem Cell Research Fellowship <span class="sub">(2019&ndash;20)</span></span>
-          <span class="amt sans">$22,500</span>
+          <span class="amt">$22,500</span>
         </li>
       </ul>
-      <p class="award-note">CIRM Stem Cell Internship, City College of San Francisco (2019&ndash;2020) &mdash; selection confirmed by a 2019&ndash;2020 cohort email addressed to &ldquo;Dear Stem Cell Internship candidate,&rdquo; from Dr. Carin Zimmerman, Ph.D., Stem Cell Technology Program Coordinator.</p>
 
-      <ul class="awards" style="margin-top:14px;">
+      <ul class="awards awards-group">
         <li>
           <span class="name">APIA/United Health Foundation Scholarship <span class="sub">(2023&ndash;2024)</span></span>
-          <span class="amt sans">$10,000 &middot; 2-yr</span>
+          <span class="amt">$10,000</span>
         </li>
         <li>
           <span class="name">APIA/Wells Fargo Foundation Scholarship <span class="sub">(2020&ndash;2021)</span></span>
-          <span class="amt sans">$2,500</span>
+          <span class="amt">$2,500</span>
         </li>
         <li>
           <span class="name">Bernard Osher Foundation Scholarship <span class="sub">(2020)</span></span>
-          <span class="amt sans">$1,000</span>
+          <span class="amt">$1,000</span>
         </li>
         <li>
           <span class="name">NSF-LAMP Award <span class="sub">(2022&ndash;24)</span></span>
-          <span class="amt sans">$500</span>
+          <span class="amt">$500</span>
         </li>
       </ul>
+
+      <div class="total-awarded">
+        <span class="total-label">Total Awarded</span>
+        <span class="total-amount sans">$223,000</span>
+      </div>
     </section>
 
     <section id="skills" class="reveal">
@@ -441,19 +689,19 @@
       <ul class="skills">
         <li class="skill-group">
           <div class="label">Cell &amp; Molecular Biology</div>
-          <div class="items">flow cytometry, mammalian cell culture, primary cell lines, immunostaining, cryopreservation, PCR, immunohistochemistry, molecular cloning</div>
+          <div class="items">Flow Cytometry, Mammalian Cell Culture, Primary Cell Lines, Immunostaining, Cryopreservation, PCR, Immunohistochemistry, Molecular Cloning</div>
         </li>
         <li class="skill-group">
           <div class="label">Genome Engineering</div>
-          <div class="items">CRISPR/Cas9, sgRNA design, HDR/GeneWeld, transgenesis, genotyping</div>
+          <div class="items">CRISPR/Cas9, sgRNA Design, HDR/GeneWeld, Transgenesis, Genotyping</div>
         </li>
         <li class="skill-group">
           <div class="label">Animal &amp; In Vivo Techniques</div>
-          <div class="items">mouse husbandry, tail-vein injections, bone marrow transplantation, zebrafish husbandry, retinal dissections</div>
+          <div class="items">Mouse Husbandry, Tail-Vein Injections, Bone Marrow Transplantation, Zebrafish Husbandry, Retinal Dissections</div>
         </li>
         <li class="skill-group">
           <div class="label">Microscopy &amp; Data Analysis</div>
-          <div class="items">fluorescence and confocal microscopy, 3D reconstruction, GraphPad Prism, Fiji/ImageJ, 3D Reconstruct, FlowJo</div>
+          <div class="items">Fluorescence and Confocal Microscopy, 3D Reconstruction, GraphPad Prism, Fiji/ImageJ, 3D Reconstruct, FlowJo</div>
         </li>
         <li class="skill-group">
           <div class="label">Scientific Visualization</div>
@@ -466,24 +714,23 @@
       <h2>Teaching &amp; Mentoring</h2>
       <ul class="teach">
         <li><span class="t">Supplemental Instructor</span> &mdash; <span class="d">General Biology, SCI 230 (San Francisco State University, Spring 2023)</span></li>
-        <li><span class="t">Mentor</span> &mdash; <span class="d">Summer Undergraduate Research Fellowship (SURF) / ICUR, University of Idaho</span></li>
-        <li><span class="t">Undergraduate research mentor</span> &mdash; <span class="d">to multiple students in the Mitchell Lab at UI (2023&ndash;present)</span></li>
-        <li><span class="t">Outreach &amp; mentoring</span> &mdash; <span class="d">Vista Center for the Blind and Visually Impaired; lab training for new colleagues in cell culture, flow cytometry, and primary cell lines</span></li>
+        <li><span class="t">Mentoring</span> &mdash; <span class="d">Summer Undergraduate Research Fellowship (SURF) / ICUR, University of Idaho; Multiple students in the Mitchell Lab at UI (2024&ndash;present)</span></li>
+        <li><span class="t">Outreach</span> &mdash; <span class="d">Vista Center for the Blind and Visually Impaired</span></li>
       </ul>
     </section>
 
     <section id="contact" class="contact reveal">
       <h2>Contact</h2>
-      <ul class="sans">
-        <li><span class="k">Institutional email</span><span class="v"><a href="mailto:jmai@uidaho.edu">jmai@uidaho.edu</a></span></li>
+      <ul>
+        <li><span class="k">Institutional Email</span><span class="v"><a href="mailto:jmai@uidaho.edu">jmai@uidaho.edu</a></span></li>
         <li><span class="k">ORCID</span><span class="v"><a href="https://orcid.org/0000-0003-3844-6537">0000-0003-3844-6537</a></span></li>
         <li><span class="k">Location</span><span class="v">Moscow, ID, USA</span></li>
       </ul>
     </section>
   </main>
 
-  <footer class="sans">
-    Justin Mai &middot; University of Idaho
+  <footer>
+    Justin Mai &middot; University of Idaho &middot; Mitchell Lab
   </footer>
 
   <script>
@@ -492,58 +739,59 @@
 
       /* Scroll reveal */
       var reveals = document.querySelectorAll('.reveal');
-      if(reduce || !('IntersectionObserver' in window)){
-        reveals.forEach(function(el){ el.classList.add('in'); });
+      if (reduce || !('IntersectionObserver' in window)) {
+        reveals.forEach(function(el) { el.classList.add('in'); });
       } else {
-        var io = new IntersectionObserver(function(entries){
-          entries.forEach(function(e){
-            if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
           });
-        }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
-        reveals.forEach(function(el){ io.observe(el); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(function(el) { io.observe(el); });
       }
 
-      /* Sticky nav active state */
+      /* Sticky nav active state via scroll spy */
       var links = Array.prototype.slice.call(document.querySelectorAll('.nav-inner a'));
-      var map = {};
-      links.forEach(function(a){
+      var sectionMap = {};
+      links.forEach(function(a) {
         var id = a.getAttribute('href').slice(1);
         var sec = document.getElementById(id);
-        if(sec) map[id] = a;
+        if (sec) sectionMap[id] = a;
       });
-      var sections = Object.keys(map).map(function(id){ return document.getElementById(id); });
 
-      function setActive(id){
-        links.forEach(function(a){ a.classList.remove('active'); });
-        if(map[id]) map[id].classList.add('active');
-      }
-
-      if('IntersectionObserver' in window){
+      if ('IntersectionObserver' in window) {
         var nav = document.querySelector('nav');
         var navH = nav ? nav.offsetHeight : 0;
-        var spy = new IntersectionObserver(function(entries){
-          entries.forEach(function(e){
-            if(e.isIntersecting) setActive(e.target.id);
+        var spy = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting && sectionMap[e.target.id]) {
+              links.forEach(function(a) { a.classList.remove('active'); });
+              sectionMap[e.target.id].classList.add('active');
+            }
           });
-        }, {rootMargin:'-'+(navH+10)+'px 0px -55% 0px', threshold:0});
-        sections.forEach(function(s){ spy.observe(s); });
+        }, { rootMargin: '-' + (navH + 10) + 'px 0px -55% 0px', threshold: 0 });
+
+        Object.keys(sectionMap).forEach(function(id) {
+          spy.observe(document.getElementById(id));
+        });
       }
 
-      /* Click-to-scroll with sticky offset */
-      links.forEach(function(a){
-        a.addEventListener('click', function(ev){
+      /* Smooth scroll with sticky nav offset */
+      links.forEach(function(a) {
+        a.addEventListener('click', function(ev) {
           var id = a.getAttribute('href').slice(1);
           var sec = document.getElementById(id);
-          if(!sec) return;
+          if (!sec) return;
           ev.preventDefault();
           var nav = document.querySelector('nav');
           var navH = nav ? nav.offsetHeight : 0;
-          var y = sec.getBoundingClientRect().top + window.pageYOffset - navH - 8;
-          window.scrollTo({top:y, behavior: reduce ? 'auto' : 'smooth'});
-          setActive(id);
+          var y = sec.getBoundingClientRect().top + window.pageYOffset - navH - 12;
+          window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
+          links.forEach(function(a) { a.classList.remove('active'); });
+          a.classList.add('active');
         });
       });
     })();
   </script>
-<a href="#" aria-label="University of Idaho" style="position:fixed;left:16px;bottom:16px;z-index:2147483000;background:#fff;padding:8px 12px;border-radius:10px;line-height:0;box-shadow:0 2px 12px rgba(0,0,0,.18);border-bottom:4px solid #F1B300"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNjkuMzg0IiB2aWV3Qm94PSIwIDAgMjUwIDY5LjM4NDAwMyIgd2lkdGg9IjI1MCI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4yNSAwIDAgLTEuMjUgLTI1Ny4zNyA1MjkuNDEpIj48Zz48cGF0aCBkPSJtMjAxLjUyIDI1LjI0NHY1LjU2MWMtMC41NS0wLjA4MS0xLjE0LTAuMTU3LTEuOTYtMC4xNTctNC41OSAwLTcuOTMgMy4wMTEtNy45MyA3LjE1OSAwIDQuMTYyIDMuMDggNi44NTEgNy44NCA2Ljg1MSAyLjA3IDAgMy45Ny0wLjM3MSA1LjM0LTEuMDQzbDAuMDUtMC4wMjF2LTE4LjM1aC0zLjM0em0xOC45NyAwdjE5LjEzM2gzLjM0di05LjM2M2MxLjQxLTEuMDg4IDIuNjQtMS42MTYgMy43Ny0xLjYxNiAxLjk5IDAgMi4yNiAxLjUyMSAyLjI2IDMuMDA4djcuOTcxaDMuMzR2LTguNzgzYzAtNC40NjQtMy4xNy00Ljk0Ni00LjUzLTQuOTQ2LTIuMDUgMC0zLjU5IDAuODcyLTQuODQgMS43NTJ2LTcuMTU2aC0zLjM0em0tMTcxLjAxIDAuMDI2djEyLjMxNGMwIDIuMzU2IDAuNjcgNC4xMzYgMS45OSA1LjI5MSAxLjMwOCAxLjE2NSAzLjQyNSAxLjc4MyA2LjEyMSAxLjc4MyAyLjgxOCAwIDQuOTcxLTAuNjc3IDYuMzk4LTIuMDEgMS4yOC0xLjE5NSAxLjk1NS0yLjkyNiAxLjk1NS01LjAwOXYtMTIuMzY5aC0zLjYzMXYxMi4zNDFjMCAxLjQ0MS0wLjM2MiAyLjQ4Ni0xLjExMSAzLjE5Ni0wLjgzMiAwLjgxOS0xLjkyOCAxLjE4NS0zLjU1MyAxLjE4NS0xLjQ1NSAwLTIuNDcxLTAuMzY3LTMuMy0xLjE4NS0wLjgxNy0wLjc5Ny0xLjI3LTEuOTkzLTEuMjctMy4zNjR2LTEyLjE3M2gtMy41OTl6bTEzNy4wNSAwdjE5LjEwN2gzLjU0di0xOS4xMDdoLTMuNTR6bS0xMDIuMTMgMC4wMzFjLTEuMTk0IDAtMi4xMjkgMC44My0yLjEyOSAxLjg5IDAgMS4wNjIgMC45MzUgMS44OTUgMi4xMjkgMS44OTUgMS4xNTcgMCAyLjEtMC44NTEgMi4xLTEuODk1IDAtMS4wNi0wLjkyMy0xLjg5LTIuMS0xLjg5em01My4yMzggMGMtMS4xOSAwLTIuMTMgMC44My0yLjEzIDEuODkgMCAxLjA2MiAwLjk0IDEuODk1IDIuMTMgMS44OTUgMS4xNiAwIDIuMS0wLjg1MSAyLjEtMS44OTUgMC0xLjA2LTAuOTItMS44OS0yLjEtMS44OXptOS4yIDEuNzY3bC0wLjA5IDAuMDI2LTMuMiAwLjg5Ni0wLjA1IDAuMDE0djIuOThoLTIuNTJ2Mi40MTRoMi41MnY4LjE5YzAgMS45OCAxLjI0IDMuMDcgMy40OCAzLjA3IDEuNTMgMCAzLjI4LTAuNTQzIDQuNTgtMS40MTRsMC4wNi0wLjAzMy0wLjkyLTEuOTYxLTAuMDQtMC4wNzYtMC4wNiAwLjA0NWMtMC41OSAwLjM2NC0xLjQ5IDAuODAxLTIuNDIgMC44MDEtMC45MiAwLTEuMzQtMC40NjgtMS4zNC0xLjQ2OXYtNy4xNTNoNC41MWMyLjA0IDQuNDYyIDQuNzQgMTAuMzc1IDQuODYgMTAuNzE3LTAuMDQgMC4xMzctMC40NSAxLjExOS0xLjI4IDIuMjcyLTAuNzcgMS4wNzItMi4xIDIuNTUxLTQuMDQgMy41MDhsLTAuMDcgMC4wMzcgMC4wNSAwLjA3IDEuNDkgMS45OTggMC4wNCAwLjA0MyAwLjA1LTAuMDJjMS43NC0wLjY3NSAzLjQzLTIuMiA1LjAzLTQuNTMxIDEuMjgtMS44NiAyLjUxLTQuMjM1IDMuNjQtNy4wNiAxLjk0LTQuODA4IDIuOTYtOS4zMTMgMi45Ny05LjM1OGwwLjAyLTAuMDloLTIuOTVsLTAuMDEgMC4wNTdjLTAuMDEgMC4wNjYtMS40OCA2LjQ3OS0zLjMxIDkuOTk4LTEuNy0zLjczNC00LjIzLTkuOTQ1LTQuMjUtMTAuMDA4bC0wLjAyLTAuMDQ3aC02Ljczdi0zLjkxNnptLTI0Ljk3IDMuNDk2Yy0xLjI1IDAtMi4xOSAwLjQ0NC0zLjg0IDEuODIxbC0wLjM3LTEuMzQ4LTAuMDEtMC4wNTNoLTIuOHYxMy4zOTNoMy4zNHYtOS41OWMwLjk2LTAuODE3IDEuODktMS4yNTYgMi43LTEuMjY5aDAuMDZjMC42MiAwIDEuNDYgMC4xNTQgMS45MiAwLjQ5NGwwLjA4IDAuMDYyIDAuMDMtMC4xMDNjMC40NC0xLjcyNSAxLjItMi42MjQgMS4yMS0yLjYzM2wwLjA1LTAuMDU1LTAuMDUtMC4wNDdjLTAuNTQtMC40NTgtMS43LTAuNjcyLTIuMzItMC42NzJ6bS00NS43MTIgMC4wODRjLTEuNzczIDAtMy4yNiAwLjUxNi01LjExMSAxLjc3NmwtMC4zNDItMS4zODUtMC4wMTQtMC4wNTVoLTIuOHYxMy4zOTNoMy4zMzh2LTkuNDE2YzAuOTQ5LTAuNjc3IDIuMzcxLTEuNTYzIDMuODg2LTEuNTYzIDEuOTcgMCAyLjE5OSAxLjcgMi4xOTkgMi45Nzl2OGgzLjMzOHYtOC45MjJjMC0zLjU0OC0yLjQyMi00LjgwNy00LjQ5NC00LjgwN3ptMzAuNzEyIDBjLTMuNzggMC02LjQzIDIuODUzLTYuNDMgNi45MzYgMCAzLjI2MyAxLjg3IDcuMDc0IDcuMTQgNy4wNzQgMS44NSAwIDMuODQtMC41NTMgNS4xOS0xLjQ0MWwwLjA1LTAuMDM1LTAuMDMtMC4wNTljMC0wLjAxLTAuNTMtMS4wMS0wLjgyLTIuMDU5bC0wLjAzLTAuMDkzLTAuMDggMC4wNWMtMS4xNyAwLjcwOC0yLjQ1IDEuMDgzLTMuNyAxLjA4My0yLjQ2IDAtNC4yMi0xLjUwNC00LjI4LTMuNjY1aDkuMzN2LTAuODg0YzAtNC4xOTYtMi40OS02LjkwNy02LjM0LTYuOTA3em0yMi43MSAwYy0zLjIzIDAtNS4zMiAxLjUxMy01LjMyIDMuODU0IDAgMi42NTggMi4xNSAzLjQ2MiA0LjA1IDQuMTcgMS40IDAuNTI0IDIuNjEgMC45NzYgMi42MSAyLjA3NiAwIDAuOTQtMC45OSAxLjUyMy0yLjYgMS41MjMtMS4zNyAwLTIuNzQtMC40NTMtMy43Ni0xLjI0NmwtMC4wOC0wLjA2LTAuMDMgMC4wOTRjLTAuNDkgMS4zMzktMS4wNiAyLjMwMi0xLjA3IDIuMzEybC0wLjA0IDAuMDYzIDAuMDcgMC4wMzdjMS4zOCAwLjc5OCAzLjA0IDEuMTg3IDUuMDcgMS4xODcgMy42NCAwIDUuODEtMS41NDcgNS44MS00LjEzNSAwLTIuNjQzLTIuMzUtMy41MjgtNC4yMy00LjI0Mi0xLjM3LTAuNTE4LTIuNTUtMC45NjYtMi41NS0xLjkyIDAtMS4wODEgMS4zNy0xLjI0MiAyLjItMS4yNDIgMS4zNiAwIDIuNjEgMC4yNzIgMy44MSAwLjgzMmwwLjEgMC4wNTF2LTAuMTE5Yy0wLjA2LTEuMjU4IDAuMDktMi40NDIgMC4wOS0yLjQ1M3YtMC4wNTdsLTAuMDUtMC4wMjFjLTAuOS0wLjMyOC0yLjE3LTAuNzA0LTQuMDgtMC43MDR6bTgzLjE0IDBjLTIuMTggMC0zLjgzIDAuNDU2LTUuNTMgMS41MjRsLTAuMDYgMC4wMzcgMC4wMyAwLjA2MSAxLjA4IDEuODc1IDAuMDMgMC4wNjQgMC4wNy0wLjAzN2MxLjE4LTAuNzA4IDIuNDEtMS4wNTMgMy43NC0xLjA1MyAxLjI5IDAgMi44NCAwLjQyNSAyLjg0IDIuNDQ3djAuMzIxbC0yLjYzIDAuMDgyYy0zLjkzIDAuMTQ1LTYuMDkgMS43MjQtNi4wOSA0LjQ0MyAwIDIuNDYgMS45OCA0LjI0NiA0LjcxIDQuMjQ2IDEuNjYgMCAzLjA5LTAuNDk1IDQuMjctMS40N2wwLjU3IDEuMTUgMC4wMyAwLjAzOWgyLjgybC0wLjA0LTAuMWMtMC4yMS0wLjUxNS0wLjI3LTEuNDUtMC4yNy00LjAwNnYtNC44NDVjMC0zLjE3MS0xLjg4LTQuNzc4LTUuNTctNC43Nzh6bTI5IDBjLTEuOTYgMC0zLjc0IDAuNjYzLTUgMS44NjgtMS4zNiAxLjI3Mi0yLjExIDMuMTIxLTIuMTEgNS4yMDcgMCAyLjE3IDAuNzkgNC4wNDkgMi4yMSA1LjI5MSAxLjIxIDEuMDc0IDIuOSAxLjY0NCA0LjkgMS42NDRzMy43Ni0wLjYzNiA1LjA4LTEuODRjMS4zNC0xLjI1MiAyLjA4LTMuMDkyIDIuMDgtNS4xNzkgMC0yLjA2OS0wLjcyLTMuODgtMi4wMi01LjA5NC0xLjI2LTEuMjQxLTMuMDQtMS44OTctNS4xNC0xLjg5N3ptLTYwLjY4IDAuMjljLTAuODEgMC0zLjQ4IDAuMjU1LTQuMTIgMy41MTlsLTAuMTggMC45MjJoLTEuNDRsLTAuMDIgMC4wNTMtMC41MSAxLjc1OS0wLjAzIDAuMDkyaDEuNzZjLTAuMDcgMC40NTctMC4xNCAwLjg5Ni0wLjIgMS4zMTktMC41OSAzLjgtMC45NyA2LjMwOS0zLjUxIDguNjExbC0wLjA2IDAuMDUxIDAuMDUgMC4wNTQgMS40IDEuNDE4IDAuMDUgMC4wNDcgMC4wNS0wLjA0M2MzLjMyLTIuNzMgMy45NC02Ljc5MSA0LjUzLTEwLjcybDAuMTEtMC43MzdoMS44OWwwLjAyLTAuMDQ1IDAuNzItMS44NTloLTIuMjlsMC4xNC0wLjcyN2MwLjIyLTEuMTA2IDAuODMtMS43MTYgMS43MS0xLjcxNiAwLjQ5IDAgMC45MiAwLjEyOCAxLjM2IDAuNDA0bDAuMDcgMC4wNDEgMC4wNC0wLjA2OSAwLjg5LTEuNjQyIDAuMDQtMC4wNjMtMC4wNy0wLjAzN2MtMC43Ny0wLjQzNy0xLjUxLTAuNjMyLTIuNC0wLjYzMnptLTk4LjMwOCAwLjA0NnYxMy4zOTNoMy4zMzh2LTEzLjM5M2gtMy4zMzh6bTQuNDE0IDBsMC4wNDMgMC4xMDIgNS41OTYgMTMuMzMyIDAuMDE4IDAuMDQzaDIuMzYzbDAuMDItMC4wNDMgNS44MDQtMTMuMzMyIDAuMDQtMC4xMDJoLTMuMTMybC0wLjAxOSAwLjA0Ny0zLjgxOCA5LjQ1MS0zLjU4NC05LjQ1MS0wLjAyLTAuMDQ3aC0zLjMxMXptNDguODI0IDB2MTMuMzkzaDMuMzR2LTEzLjM5M2gtMy4zNHptLTI5LjA3IDIuMDhjMS45MSAwIDIuOTYgMS41MzMgMy4wMiAzLjA3M2gtNi4wOGMwLjA0LTEuNTIzIDEuMTgtMy4wNzMgMy4wNi0zLjA3M3ptMTM0Ljc5IDAuMDgyYzIuMzIgMCAzLjc2IDEuNzMxIDMuNzYgNC41MnMtMS40MiA0LjUyMi0zLjcgNC41MjJjLTIuMjcgMC0zLjc0LTEuNzc1LTMuNzQtNC41MjIgMC0yLjgzIDEuMzgtNC41MiAzLjY4LTQuNTJ6bS00MiAwLjA1N2MwLjg2IDAgMS4zMSAwLjA3MiAxLjgzIDAuMjA3djguNDMyYy0wLjQ2IDAuMTQtMS4xNCAwLjIzMi0xLjcxIDAuMjMyLTIuOTQgMC00Ljg0LTEuNzQtNC44NC00LjQzNSAwLTIuNjUzIDEuODktNC40MzYgNC43Mi00LjQzNnptLTI5LjI1IDEuOTcxYy0xLjQ0IDAtMi43MSAwLjUxNi0zLjY3IDEuNDk0LTEuMDIgMS4wMjctMS41OCAyLjQ0My0xLjU4IDMuOTgyIDAgMS4xOTEgMC4zOCAyLjIzNyAxLjA3IDIuOTQ0IDAuNzMgMC43MDUgMS43MiAxLjA2MiAyLjk1IDEuMDYyIDEuMjkgMCAyLjUxLTAuNDY5IDMuNDUtMS4zMjIgMS4xMy0wLjk4IDEuNzctMi41MTggMS43Ny00LjIxNSAwLTAuODEzLTAuMTctMS45NjctMS4wMS0yLjg0OC0wLjY4LTAuNzE4LTEuNzEtMS4wOTctMi45OC0xLjA5N3ptLTAuMjIgMS45MzljMC41MyAwIDAuOTcgMC4xNjQgMS4yOSAwLjQ3MSAwLjMzIDAuMzQyIDAuNSAwLjg3MSAwLjUgMS41NzIgMCAxLjIwNi0wLjM4IDIuMjY5LTEuMDQgMi45MTYtMC40MiAwLjQwMi0wLjk2IDAuNjIzLTEuNTMgMC42MjMtMC41MiAwLTAuOTQtMC4xNTgtMS4yNy0wLjQ3LTAuMzQtMC4zNTEtMC41Mi0wLjg5Ni0wLjUyLTEuNTc1IDAtMS4xMjcgMC4zMi0yLjExNiAwLjkxLTIuNzg3IDAuNDYtMC40ODIgMS4wNS0wLjc1IDEuNjYtMC43NXptNDQuNjcgMS4wNzZ2Mi45NDRjLTAuODEgMC42OC0xLjc4IDEuMDI1LTIuOTEgMS4wMjUtMS41IDAtMi40NC0wLjc1NS0yLjQ0LTEuOTcgMC0xLjIzOCAxLTEuODY0IDMuMDYtMS45MTdsMi4yOS0wLjA4MnoiIHRyYW5zZm9ybT0ibWF0cml4KC44IDAgMCAtLjggMjA1LjkgNDIzLjUzKSIgZmlsbD0iIzAwMDAwMCIvPjxwYXRoIGQ9Im0yMDYuNiA0MjIuNjR2LTE0LjcwM2g0LjkwMDJ2LTI0LjUwM2gtNC45MDAydi0xNC43MDJoMjcuNzd2MTQuNzAyaC00LjkwMDh2MjQuNTAzaDQuOTAwOHYxNC43MDNoLTI3Ljc3eiIgZmlsbD0iI2YxYjMwMCIvPjxwYXRoIGQ9Im0yMDguMjMgNDIxaDI0LjUwNHYtMTEuNDM1aC00LjkwMDJ2LTI3Ljc3MWg0LjkwMDJ2LTExLjQzNmgtMjQuNTA0djExLjQzNmg0LjkwMDh2MjcuNzcxaC00LjkwMDh2MTEuNDM1IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0ibTIxNC43NyAzODAuMTZoLTQuOTAwOHYtOC4xNjcyaDIxLjIzNnY4LjE2NzJoLTQuOTAwMnYzMS4wMzhoNC45MDAydjguMTY3OGgtMjEuMjM2di04LjE2NzhoNC45MDA4di0zMS4wMzgiIGZpbGw9IiNmMWIzMDAiLz48L2c+PC9nPjwvc3ZnPgo=" alt="University of Idaho" style="height:30px;width:auto"></a></body>
+</body>
 </html>

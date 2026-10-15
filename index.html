@@ -3,45 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Justin Mai — PhD Research Fellow in the Mitchell Lab, University of Idaho. Neuroinflammation, retinal regeneration, and glia–neuron interactions.">
-<title>Justin Mai — PhD Research Fellow, University of Idaho</title>
+<meta name="description" content="Justin Mai â€” PhD Research Fellow in the Mitchell Lab, University of Idaho. Neuroinflammation, retinal regeneration, and gliaâ€“neuron interactions.">
+<title>Justin Mai â€” PhD Research Fellow, University of Idaho</title>
 <style>
+  /* ============ Modern Fonts ============ */
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap');
+
   /* ============ Reset & Tokens ============ */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --accent: #F1B300;
-    --accent-dark: #C99400;
-    --ink: #1A1A1A;
-    --muted: #5F5C55;
-    --ink-accent: #906900;
-    --bg: #FFFFFF;
-    --surface: #F9F8F5;
-    --line: #E8E5DE;
-    --line-light: #F1EFEA;
-    --radius: 6px;
-    --maxw: 880px;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
-    --shadow-md: 0 4px 12px rgba(0,0,0,.08);
-    --font-serif: Georgia, "Times New Roman", serif;
-    --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --bg: #0B1020;
+    --surface: #111A30;
+    --surface-2: #0E1628;
+    --ink: #FFFFFF;
+    --muted: #C9D3E8;
+    --accent: #FFFFFF;
+    --accent-soft: #FFFFFF;
+    --accent-deep: #E8E8E8;
+    --glow: #35C4E8;
+    --line: rgba(154, 168, 199, 0.16);
+    --line-light: rgba(154, 168, 199, 0.09);
+    --radius: 12px;
+    --maxw: 1120px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.35);
+    --shadow-md: 0 10px 30px rgba(0,0,0,.45);
+    --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
-  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 
   body {
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(1200px 500px at 80% -10%, rgba(53, 196, 232, 0.10), transparent 60%),
+      radial-gradient(900px 420px at 0% 0%, rgba(241, 179, 0, 0.08), transparent 55%),
+      linear-gradient(rgba(11,16,32,0.55), rgba(11,16,32,0.55)),
+      url("retina-art.jpg");
+    background-size: auto, auto, auto, 720px auto;
+    background-position: center top, center top, center top, center top;
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+    background-attachment: fixed, fixed, fixed, fixed;
     color: var(--ink);
-    font-family: var(--font-serif);
-    font-size: 17px;
+    font-family: var(--font-sans);
+    font-size: 16.5px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
 
-  a { color: var(--ink-accent); text-decoration: underline; text-underline-offset: 3px; transition: color .15s; }
-  a:hover { color: var(--accent-dark); }
+  a { color: var(--accent-soft); text-decoration: underline; text-underline-offset: 3px; transition: color .15s; }
+  a:hover { color: var(--accent); }
 
   .sans { font-family: var(--font-sans); }
+  strong { font-weight: 600; }
+
+
+
+  main, header, nav, footer, .topbar, .banner { position: relative; z-index: 1; }
 
   /* ============ Banner ============ */
   .banner {
@@ -52,32 +71,33 @@
   }
   .banner img {
     width: 100%;
-    height: 220px;
+    height: 260px;
     object-fit: cover;
     object-position: center;
     display: block;
+    filter: saturate(1.1) contrast(1.05);
   }
   .banner::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(to top, var(--bg), transparent);
+    inset: 0;
+    background:
+      linear-gradient(to top, var(--bg) 0%, rgba(11,16,32,.55) 45%, rgba(11,16,32,.25) 100%);
     pointer-events: none;
   }
 
   /* ============ Top Bar ============ */
   .topbar {
-    background: linear-gradient(135deg, #F1B300 0%, #E5A500 100%);
-    color: #000;
+    background: rgba(11, 16, 32, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
     font-family: var(--font-sans);
   }
   .topbar-inner {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 10px 24px;
+    padding: 12px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -86,13 +106,35 @@
     font-size: 14px;
     font-weight: 600;
   }
-  .topbar .tag { opacity: .8; font-weight: 500; }
+  .topbar .org {
+    color: var(--ink);
+    letter-spacing: .02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .topbar .org::before {
+    content: "";
+    width: 26px; height: 15px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 50%, var(--accent) 0 3px, transparent 4px),
+      radial-gradient(ellipse 50% 38% at 50% 50%, rgba(53,196,232,.55) 0, transparent 70%);
+    border: 1px solid var(--line);
+  }
+  .topbar .tag {
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: .72rem;
+  }
 
   /* ============ Hero ============ */
   .hero {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 48px 24px 40px;
+    padding: 44px 24px 36px;
     display: flex;
     align-items: center;
     gap: 36px;
@@ -101,41 +143,88 @@
   .hero::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: 24px;
-    right: 24px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent), transparent);
-    border-radius: 2px;
+    bottom: 0; left: 24px; right: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--glow) 70%, transparent);
   }
   .photo {
-    flex: 0 0 170px;
-    width: 170px;
-    height: 170px;
+    flex: 0 0 180px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid var(--accent);
-    box-shadow: var(--shadow-md), 0 0 0 6px rgba(241,179,0,.08);
+    position: relative;
   }
-  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--accent), var(--glow), var(--accent));
+    filter: blur(10px);
+    opacity: .55;
+    z-index: 0;
+    animation: spin 14s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .photo img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    position: relative; z-index: 1;
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
 
   .hero-text { flex: 1; min-width: 0; }
+  .hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(53, 196, 232, 0.12);
+    color: var(--glow);
+    border: 1px solid rgba(53, 196, 232, 0.35);
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .hero-chip::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--glow);
+    box-shadow: 0 0 10px var(--glow);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .35; }
+  }
   .hero-text h1 {
-    font-size: 2.6rem;
-    line-height: 1.08;
-    letter-spacing: -.02em;
+    font-family: var(--font-serif);
+    font-size: 3.4rem;
+    line-height: 1.02;
+    letter-spacing: -.025em;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #C9D6F2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
   .hero-text .role {
-    color: var(--ink-accent);
-    font-size: 1.15rem;
+    color: var(--accent-soft);
+    font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 4px;
   }
   .hero-text .affil {
     color: var(--muted);
-    font-size: .95rem;
+    font-size: 1rem;
   }
 
   /* ============ Navigation ============ */
@@ -143,9 +232,9 @@
     position: sticky;
     top: 0;
     z-index: 20;
-    background: rgba(255,255,255,.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(11, 16, 32, 0.82);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
     border-bottom: 1px solid var(--line);
   }
   .nav-inner {
@@ -159,68 +248,105 @@
     font-family: var(--font-sans);
   }
   .nav-inner a {
+    position: relative;
     display: inline-block;
-    padding: 13px 16px;
+    padding: 15px 16px;
     text-decoration: none;
     color: var(--muted);
-    font-size: .8rem;
+    font-size: .78rem;
     font-weight: 600;
-    letter-spacing: .03em;
+    letter-spacing: .05em;
     text-transform: uppercase;
     white-space: nowrap;
-    border-bottom: 2px solid transparent;
-    transition: color .2s, border-color .2s;
+    transition: color .2s;
   }
-  .nav-inner a:hover { color: var(--ink-accent); }
-  .nav-inner a.active { color: var(--ink-accent); border-bottom-color: var(--accent); }
+  .nav-inner a::after {
+    content: "";
+    position: absolute;
+    left: 16px; right: 16px; bottom: 8px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--glow));
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+  }
+  .nav-inner a:hover { color: var(--ink); }
+  .nav-inner a.active { color: var(--ink); }
+  .nav-inner a.active::after { transform: scaleX(1); }
 
   /* ============ Main ============ */
-  main { max-width: var(--maxw); margin: 0 auto; padding: 8px 24px 48px; }
-  
-  section { padding: 36px 0; border-bottom: 1px solid var(--line-light); }
+  main { max-width: var(--maxw); margin: 0 auto; padding: 4px 24px 32px; }
+
+  section { padding: 36px 0; border-bottom: 1px solid var(--line-light); position: relative; }
   section:last-of-type { border-bottom: none; }
 
-  h2 {
-    font-size: 1.45rem;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--accent);
-    display: inline-block;
-    color: var(--ink-accent);
-    font-weight: 700;
+  section h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    padding-bottom: 0;
+    color: var(--ink);
+    font-weight: 600;
     letter-spacing: -.01em;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  section h2::before {
+    content: "";
+    width: 34px;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--glow));
+    box-shadow: 0 0 12px rgba(53, 196, 232, .5);
   }
   h3 {
-    font-size: 1.08rem;
-    margin: 28px 0 14px;
-    color: var(--ink);
-    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 20px 0 10px;
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-family: var(--font-sans);
   }
-  p { margin-bottom: 14px; }
-  strong { font-weight: 700; }
+  p { margin-bottom: 12px; }
 
   /* ============ Bio ============ */
-  .bio p { font-size: 1.06rem; line-height: 1.75; }
+  .bio p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #DCE5F5;
+    max-width: 100%;
+  }
+  .bio p strong { color: var(--accent-soft); }
 
   /* ============ Research Interests ============ */
   .interests { list-style: none; }
   .interests li {
     position: relative;
-    padding: 14px 0 14px 28px;
+    padding: 16px 0 16px 32px;
     border-bottom: 1px solid var(--line-light);
   }
   .interests li:last-child { border-bottom: none; }
   .interests li::before {
     content: "";
     position: absolute;
-    left: 0;
-    top: 22px;
-    width: 10px;
-    height: 10px;
-    background: var(--accent);
-    border-radius: 2px;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(135deg, var(--accent), var(--glow));
+-webkit-mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMiA1QzcgNSAyLjczIDguMTEgMSAxMmMxLjczIDMuODkgNiA3IDExIDdzOS4yNy0zLjExIDExLTdjLTEuNzMtMy44OS02LTctMTEtN3ptMCAxMi41YTUuNSA1LjUgMCAxIDEgMC0xMSA1LjUgNS41IDAgMCAxIDAgMTF6bTAtOC41YTMgMyAwIDEgMCAwIDYgMyAzIDAgMCAwIDAtNnoiLz48L3N2Zz4=") center / contain no-repeat;
+            mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMiA1QzcgNSAyLjczIDguMTEgMSAxMmMxLjczIDMuODkgNiA3IDExIDdzOS4yNy0zLjExIDExLTdjLTEuNzMtMy44OS02LTctMTEtN3ptMCAxMi41YTUuNSA1LjUgMCAxIDEgMC0xMSA1LjUgNS41IDAgMCAxIDAgMTF6bTAtOC41YTMgMyAwIDEgMCAwIDYgMyAzIDAgMCAwIDAtNnoiLz48L3N2Zz4=") center / contain no-repeat;
+    filter: drop-shadow(0 0 6px rgba(53, 196, 232, .6));
   }
-  .interests li strong { color: var(--ink-accent); }
+  .interests li strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
 
   /* ============ Education ============ */
   .edu { list-style: none; }
@@ -229,57 +355,115 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 16px;
-    padding: 14px 0;
+    padding: 16px 0;
     border-bottom: 1px solid var(--line-light);
   }
   .edu li:last-child { border-bottom: none; }
-  .edu .deg { font-weight: 700; margin-bottom: 2px; }
-  .edu .inst { color: var(--muted); font-size: .93rem; }
+  .edu .deg {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .edu .inst { color: var(--muted); font-size: .95rem; }
   .edu .dates {
     font-family: var(--font-sans);
-    font-size: .78rem;
+    font-size: .75rem;
     font-weight: 700;
-    color: #fff;
-    background: var(--accent);
-    padding: 3px 10px;
-    border-radius: 3px;
+    color: #0B1020;
+    background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+    padding: 4px 12px;
+    border-radius: 999px;
     white-space: nowrap;
     flex-shrink: 0;
+    letter-spacing: .02em;
   }
 
   /* ============ Experience ============ */
   .exp { list-style: none; }
   .exp-item {
     position: relative;
-    padding: 20px 0 20px 24px;
-    border-left: 3px solid var(--accent);
+    padding: 20px 0 20px 28px;
+    border-left: 3px solid transparent;
+    border-image: linear-gradient(180deg, var(--accent), var(--glow)) 1;
     border-bottom: 1px solid var(--line-light);
-    transition: border-color .2s;
+    transition: background .2s, padding-left .2s;
   }
-  .exp-item:hover { border-left-color: var(--ink-accent); }
+  .exp-item:hover { background: rgba(53, 196, 232, 0.04); padding-left: 34px; }
   .exp-item:last-child { border-bottom: none; }
-  .exp-item .role { font-size: 1.06rem; font-weight: 700; color: var(--ink-accent); }
-  .exp-item .meta { margin: 4px 0 10px; color: var(--muted); font-size: .92rem; }
-  .exp-item .proj { margin-bottom: 6px; font-size: .98rem; }
-  .exp-item .proj em { font-style: italic; }
-  .exp-item .pi { font-size: .92rem; color: var(--muted); }
-  .exp-item .pi-name { margin-top: 2px; font-weight: 600; color: var(--ink-accent); }
+  .exp-item .role {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .exp-item .meta { margin: 4px 0 10px; color: var(--muted); font-size: .95rem; }
+  .exp-item .proj { margin-bottom: 8px; font-size: 1rem; }
+  .exp-item .proj em { color: #C9D6F2; }
+  .exp-item .pi { font-size: .95rem; color: var(--muted); }
+  .exp-item .pi-name { margin-top: 2px; font-weight: 600; color: var(--accent-soft); }
+  .exp-item .interests { margin-top: 14px; }
+  .exp-item .interests li { padding: 10px 0 10px 32px; font-size: .97rem; }
+  .poster-embed {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 14px 0 6px 0;
+    border: 2px solid rgba(53, 196, 232, .4);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    cursor: zoom-in;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+    background: #0E1628;
+  }
+  .poster-embed:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: 0 16px 40px rgba(53, 196, 232, .18);
+  }
+  .pdf-embed {
+    display: block;
+    width: 100%;
+    height: 900px;
+    margin: 18px 0 10px 0;
+    border: 2px solid rgba(53, 196, 232, .4);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    background: #0E1628;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .pdf-embed:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: 0 16px 40px rgba(53, 196, 232, .18);
+  }
+  .poster-label {
+    font-family: var(--font-sans);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--glow);
+    margin: 0 0 8px 0;
+  }
 
   /* ============ Publications ============ */
   .pub {
-    padding: 16px 0 16px 20px;
-    border-left: 3px solid var(--accent);
+    padding: 16px 0 16px 22px;
+    border-left: 3px solid transparent;
+    border-image: linear-gradient(180deg, var(--accent), var(--glow)) 1;
     border-bottom: 1px solid var(--line-light);
     transition: background .15s;
-    margin-left: -20px;
-    padding-right: 12px;
+    margin-left: -22px;
+    padding-right: 14px;
     border-radius: 0 var(--radius) var(--radius) 0;
   }
-  .pub:hover { background: var(--surface); }
+  .pub:hover { background: rgba(241, 179, 0, 0.05); }
   .pub:last-child { border-bottom: none; }
-  .pub .cite { font-size: .98rem; margin-bottom: 8px; line-height: 1.65; }
-  .pub .doi { font-size: .9rem; margin-bottom: 6px; }
-  .pub .note { font-size: .9rem; color: var(--muted); }
+  .pub .cite { font-size: 1rem; margin-bottom: 8px; line-height: 1.7; }
+  .pub .cite strong { color: var(--accent-soft); }
+  .pub .doi { font-size: .92rem; margin-bottom: 6px; }
+  .pub .note { font-size: .92rem; color: var(--muted); }
   .pub .note em { color: var(--ink); }
 
   /* ============ Awards & Fellowships ============ */
@@ -289,62 +473,70 @@
     justify-content: space-between;
     align-items: baseline;
     gap: 16px;
-    padding: 12px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--line-light);
   }
   .awards li:last-child { border-bottom: 1px solid var(--line-light); }
   .awards-group { margin-top: 0; }
-  .awards .name { font-weight: 700; }
-  .awards .sub { color: var(--muted); font-weight: 400; font-size: .9rem; }
+  .awards .name { font-weight: 600; }
+  .awards .sub { color: var(--muted); font-weight: 400; font-size: .92rem; }
   .awards .amt {
     font-family: var(--font-sans);
     font-size: .82rem;
     font-weight: 700;
-    color: #fff;
-    background: var(--accent);
-    padding: 3px 10px;
-    border-radius: 3px;
+    color: #0B1020;
+    background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+    padding: 4px 14px;
+    border-radius: 999px;
     white-space: nowrap;
     flex-shrink: 0;
+    letter-spacing: .02em;
   }
 
   .docs {
-    margin: 16px 0 8px;
-    padding: 16px 0 16px 20px;
-    border-left: 3px solid var(--accent);
+    margin: 14px 0 10px;
+    padding: 16px 0 16px 24px;
+    border-left: 3px solid transparent;
+    border-image: linear-gradient(180deg, var(--accent), var(--glow)) 1;
   }
   .docs .docs-title {
     font-family: var(--font-sans);
-    font-size: .75rem;
+    font-size: .72rem;
     font-weight: 700;
-    letter-spacing: .06em;
+    letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--ink-accent);
-    margin-bottom: 12px;
+    color: var(--glow);
+    margin-bottom: 14px;
   }
-  .docs ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+  .docs ul { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
   .doc-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: var(--accent);
-    color: #000;
+    gap: 10px;
+    background: rgba(241, 179, 0, 0.12);
+    color: var(--accent-soft);
+    border: 1px solid rgba(241, 179, 0, 0.35);
     font-family: var(--font-sans);
-    font-size: .83rem;
-    font-weight: 700;
+    font-size: .84rem;
+    font-weight: 600;
     text-decoration: none;
-    padding: 9px 16px;
-    border-radius: 4px;
-    transition: background .15s, transform .15s, box-shadow .15s;
+    padding: 10px 18px;
+    border-radius: 999px;
+    transition: background .15s, transform .15s, box-shadow .15s, color .15s;
   }
-  .doc-btn:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); color: #000; }
+  .doc-btn:hover {
+    background: var(--accent);
+    color: #0B1020;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(241, 179, 0, .28);
+  }
   .doc-btn svg { flex-shrink: 0; }
 
   .award-note {
-    margin-top: 10px;
-    font-size: .9rem;
+    margin-top: 12px;
+    font-size: .92rem;
     color: var(--muted);
-    padding-left: 20px;
+    padding-left: 22px;
     border-left: 3px solid var(--line);
     line-height: 1.6;
   }
@@ -355,128 +547,147 @@
     display: flex;
     align-items: baseline;
     justify-content: flex-end;
-    gap: 14px;
-    padding-top: 14px;
+    gap: 16px;
+    padding-top: 18px;
     border-top: 1px solid var(--line);
   }
   .total-awarded .total-label {
     font-family: var(--font-sans);
-    font-size: .8rem;
+    font-size: .78rem;
     font-weight: 600;
-    letter-spacing: .05em;
+    letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--muted);
   }
   .total-awarded .total-amount {
-    font-family: var(--font-sans);
-    font-size: 1.4rem;
+    font-family: var(--font-serif);
+    font-size: 2rem;
     font-weight: 700;
-    color: var(--ink-accent);
+    background: linear-gradient(135deg, var(--accent-soft), var(--glow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   /* ============ Skills ============ */
   .skills { list-style: none; }
   .skill-group {
     display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 16px;
-    padding: 14px 0;
+    grid-template-columns: 240px 1fr;
+    gap: 20px;
+    padding: 16px 0;
     border-bottom: 1px solid var(--line-light);
   }
   .skill-group:last-child { border-bottom: none; }
-  .skill-group .label { font-weight: 700; color: var(--ink-accent); }
-  .skill-group .items { font-size: .95rem; color: var(--muted); }
+  .skill-group .label {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-soft);
+  }
+  .skill-group .items { font-size: .96rem; color: var(--muted); line-height: 1.8; }
 
   /* ============ Teaching ============ */
   .teach { list-style: none; }
   .teach li {
     position: relative;
-    padding: 14px 0 14px 28px;
+    padding: 16px 0 16px 32px;
     border-bottom: 1px solid var(--line-light);
   }
   .teach li:last-child { border-bottom: none; }
   .teach li::before {
     content: "";
     position: absolute;
-    left: 0;
-    top: 22px;
-    width: 10px;
-    height: 10px;
-    background: var(--accent);
-    border-radius: 2px;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(135deg, var(--accent), var(--glow));
+-webkit-mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMiA1QzcgNSAyLjczIDguMTEgMSAxMmMxLjczIDMuODkgNiA3IDExIDdzOS4yNy0zLjExIDExLTdjLTEuNzMtMy44OS02LTctMTEtN3ptMCAxMi41YTUuNSA1LjUgMCAxIDEgMC0xMSA1LjUgNS41IDAgMCAxIDAgMTF6bTAtOC41YTMgMyAwIDEgMCAwIDYgMyAzIDAgMCAwIDAtNnoiLz48L3N2Zz4=") center / contain no-repeat;
+            mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMiA1QzcgNSAyLjczIDguMTEgMSAxMmMxLjczIDMuODkgNiA3IDExIDdzOS4yNy0zLjExIDExLTdjLTEuNzMtMy44OS02LTctMTEtN3ptMCAxMi41YTUuNSA1LjUgMCAxIDEgMC0xMSA1LjUgNS41IDAgMCAxIDAgMTF6bTAtOC41YTMgMyAwIDEgMCAwIDYgMyAzIDAgMCAwIDAtNnoiLz48L3N2Zz4=") center / contain no-repeat;
+    filter: drop-shadow(0 0 6px rgba(53, 196, 232, .6));
   }
-  .teach .t { font-weight: 700; }
-  .teach .d { color: var(--muted); font-size: .93rem; }
+  .teach .t { font-weight: 600; color: var(--ink); }
+  .teach .d { color: var(--muted); font-size: .95rem; }
 
   /* ============ Contact ============ */
   .contact {
-    background: var(--surface);
+    background: linear-gradient(180deg, rgba(53, 196, 232, 0.06), rgba(241, 179, 0, 0.04));
+    border: 1px solid var(--line);
     border-bottom: none;
-    margin-top: 12px;
+    margin-top: 16px;
     border-radius: var(--radius) var(--radius) 0 0;
-    padding: 36px 96px;
+    padding: 28px 32px;
+    backdrop-filter: blur(6px);
   }
+  .contact-inner { max-width: none; margin: 0 auto; display: table; }
   .contact h2 { border-bottom: none; padding-bottom: 0; }
   .contact ul { list-style: none; }
   .contact li {
     display: flex;
-    gap: 16px;
+    gap: 20px;
     align-items: baseline;
-    padding: 12px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--line);
     font-family: var(--font-sans);
   }
   .contact li:last-child { border-bottom: none; }
   .contact .k {
-    flex: 0 0 160px;
+    flex: 0 0 170px;
     font-weight: 700;
-    font-size: .82rem;
-    letter-spacing: .04em;
-    color: var(--ink-accent);
+    font-size: .78rem;
+    letter-spacing: .12em;
+    color: var(--glow);
     text-transform: uppercase;
   }
   .contact .v { flex: 1; }
 
   /* ============ Footer ============ */
   footer {
-    background: linear-gradient(135deg, #F1B300 0%, #E5A500 100%);
-    color: #000;
+    background: rgba(11, 16, 32, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid var(--line);
+    color: var(--ink);
     text-align: center;
-    padding: 20px 24px;
+    padding: 22px 24px;
     font-family: var(--font-sans);
-    font-size: .88rem;
+    font-size: .9rem;
     font-weight: 600;
+    letter-spacing: .02em;
   }
 
   /* ============ Responsive ============ */
   @media (max-width: 640px) {
     body { font-size: 16px; }
-    .banner img { height: 140px; }
+    .banner img { height: 180px; }
     .hero {
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 20px;
-      padding: 36px 20px 32px;
+      gap: 22px;
+      padding: 32px 20px 28px;
     }
     .hero::after { left: 20px; right: 20px; }
-    .hero-text h1 { font-size: 2rem; }
-    .photo { flex-basis: auto; width: 140px; height: 140px; }
+    .hero-text h1 { font-size: 2.4rem; }
+    .photo { flex-basis: auto; width: 150px; height: 150px; }
     .skill-group { grid-template-columns: 1fr; gap: 4px; }
     .contact li { flex-direction: column; gap: 2px; }
-    .contact { padding: 24px 32px; }
+    .contact { padding: 28px 24px; }
     .contact .k { flex-basis: auto; }
     .awards li { flex-direction: column; align-items: flex-start; gap: 6px; }
     .edu li { flex-direction: column; gap: 6px; }
-    main { padding: 8px 16px 36px; }
+    main { padding: 4px 16px 24px; }
     section { padding: 28px 0; }
+    .poster-embed, .pdf-embed, .poster-label { margin-left: 0; max-width: 100%; }$nl    .pdf-embed { height: 600px; }
   }
 
   /* ============ Animations ============ */
   @media (prefers-reduced-motion: no-preference) {
     .reveal {
       opacity: 0;
-      transform: translateY(16px);
+      transform: translateY(18px);
       transition: opacity .6s ease, transform .6s ease;
     }
     .reveal.in { opacity: 1; transform: none; }
@@ -484,6 +695,68 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .reveal { opacity: 1; transform: none; }
+
+  }
+  }
+
+  /* Gallery */
+  .gallery {
+    max-width: var(--maxw);
+    margin: 48px auto;
+    padding: 0 24px;
+  }
+  .gallery h2 {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    margin-bottom: 24px;
+    color: var(--ink);
+    position: relative;
+    padding-bottom: 10px;
+  }
+  .gallery h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .gallery-item {
+    display: block;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+  .gallery-caption {
+    padding: 10px 12px;
+    font-family: var(--font-sans);
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  @media (max-width: 720px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item img { height: 220px; }
   }
 </style>
 </head>
@@ -493,6 +766,8 @@
     <img src="retina%20image.webp" alt="Fluorescence micrograph of a vertebrate retina">
   </div>
 
+
+  
   <div class="topbar">
     <div class="topbar-inner">
       <span class="org">University of Idaho</span>
@@ -521,6 +796,7 @@
       <a href="#fellowships">Fellowships</a>
       <a href="#skills">Skills</a>
       <a href="#teaching">Teaching</a>
+      <a href="gallery.html" target="_blank" rel="noopener">Gallery</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -576,84 +852,42 @@
           <p class="proj">Project: <em>Immunometabolic Profiles Driving Microglial Responses and Functions in the Vertebrate Retina.</em></p>
           <p class="pi">PhD research on neuroinflammation, microglial activation, and glia&ndash;neuron signaling in retinal disease models.</p>
           <p class="pi pi-name">PI: <a href="https://www.mitchelllabuofi.com" target="_blank" rel="noopener">Dr. Diana Mitchell</a></p>
-            
-          
-          <div class="proj-abstract">
-  Research Projects
-  <ul class="interests">
-    <li>
-      <strong>Microglia-Specific GeneWeld HDR:</strong>
-      Developing and validating a GeneWeld-based homology-directed repair (HDR)
-      strategy for microglia-specific genetic engineering in zebrafish to enable
-      targeted manipulation of microglial function.
-    </li>
-    <li>
-      <strong>IRG1–Itaconate Signaling in Retinal Microglia:</strong>
-      Characterizing the temporal dynamics of IRG1 reporter expression following
-      photoreceptor injury and investigating its potential role in microglial
-      immunometabolic responses during retinal damage and regeneration.
-    </li>
-  </ul>
-</div>
+          <ul class="interests">
+            <li><strong>Microglia-Specific GeneWeld HDR:</strong> Developing and validating a GeneWeld-based homology-directed repair (HDR) strategy for microglia-specific genetic engineering in zebrafish to enable targeted manipulation of microglial function.</li>
+            <li><strong>IRG1&ndash;Itaconate Signaling in Retinal Microglia:</strong> Characterizing the temporal dynamics of IRG1 reporter expression following photoreceptor injury and investigating its potential role in microglial immunometabolic responses during retinal damage and regeneration.</li>
+          </ul>
         </li>
-        
         <li class="exp-item">
           <div class="role">NIH-URISE Fellow</div>
           <div class="meta">San Francisco State University, Anastassov Lab &middot; 2022&ndash;2024</div>
           <p class="proj">Project: <em>Structural Diversity of Mitochondria and Quantification of Synaptic Vesicles from Different Neuron Types in the Simplex Retina of Little Skate.</em></p>
           <p class="pi">Undergraduate research in retinal connectomics, including 3D reconstruction of mitochondria and ribbon synapses.</p>
           <p class="pi pi-name">PI: <a href="https://www.anastassovlab.org" target="_blank" rel="noopener">Dr. Ivan Anastassov</a></p>
-
-              <div class="proj-abstract">
-  Research Projects
-  <ul class="interests">
-    <li>
-      <strong>Mitochondrial Diversity and Synaptic Vesicles in Little Skate Retina:</strong>
-      Characterizing mitochondrial morphology and quantifying synaptic vesicles
-      in retinal neurons using 3D electron microscopy.
-      <a href="skate-retina-poster.pdf" target="_blank"
-         rel="noopener noreferrer">View Poster</a>
-    </li>
-  </ul>
-</div>        
+          <ul class="interests">
+            <li><strong>Mitochondrial Diversity and Synaptic Vesicles in Little Skate Retina:</strong> Characterizing mitochondrial morphology and quantifying synaptic vesicles in retinal neurons using 3D electron microscopy.</li>
+          </ul>
+          <p class="poster-label">Poster &mdash; ARVO 2023</p>
+          <iframe class="pdf-embed" src="skate-retina-poster.pdf#view=Fit" title="Poster: Structural Diversity of Mitochondria and Quantification of Synaptic Vesicles from Different Neuron Types in the Simplex Retina of Little Skate"></iframe>
         </li>
-
-        
         <li class="exp-item">
           <div class="role">CIRM Research Fellow</div>
           <div class="meta">Vitalant Research Institute, Stem Cell Therapy Core &middot; 2019&ndash;2020</div>
           <p class="proj">Project: <em>Reforming the Enumeration of Clonogenic Frequency Method in Mesenchymal Stromal Cell Population: Extreme Limiting Dilution Assay vs Colony Forming Unit Assay.</em></p>
           <p class="pi">Optimized stem cell enumeration (ELDA vs. CFU) and cryoprotectant formulation in collaboration with a biotech partner.</p>
           <p class="pi pi-name">PI: <a href="https://research.vitalant.org/people/muench" target="_blank" rel="noopener">Dr. Marcus Muench</a></p>
-    <div class="proj-abstract">
-  Research Projects
-  <ul class="interests">
-    <li>
-      <strong>Clonogenic Cell Frequency in Mesenchymal Stromal Cells:</strong>
-      Comparing CFU-F and extreme limiting dilution assays (ELDA) to estimate
-      clonogenic cell frequency in fetal bone marrow.
-      <a href="cirm-poster.png" target="_blank"
-         rel="noopener noreferrer">View Poster</a>
-    </li>
-  </ul>
-</div>
+          <ul class="interests">
+            <li><strong>Clonogenic Cell Frequency in Mesenchymal Stromal Cells:</strong> Comparing CFU-F and extreme limiting dilution assays (ELDA) to estimate clonogenic cell frequency in fetal bone marrow.</li>
+          </ul>
+          <p class="poster-label">Poster &mdash; CIRM 2020</p>
+          <img class="poster-embed" src="cirm-poster.png" alt="Poster: Reforming the Enumeration of Clonogenic Frequency Method in Mesenchymal Stromal Cell Population" referrerpolicy="no-referrer">
         </li>
       </ul>
+
+      <p style="margin-top:16px;"><strong>Academic Profile:</strong>
+        <a href="https://scholar.google.com/citations?user=Exi05LYAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      </p>
     </section>
 
-        </ul>
-
-    <p class="pi">
-      <p class="pi" style="margin-top: 20px;">
-      <strong>Academic Profile:</strong>
-      <a href="https://scholar.google.com/citations?user=Exi05LYAAAAJ&amp;hl=en&amp;oi=ao"
-         target="_blank"
-         rel="noopener noreferrer">
-        Google Scholar
-      </a>
-    </p>
-  </section>
-    
     <section id="publications" class="reveal">
       <h2>Publications</h2>
 
@@ -780,6 +1014,7 @@
     </section>
 
     <section id="contact" class="contact reveal">
+      <div class="contact-inner">
       <h2>Contact</h2>
       <ul>
         <li><span class="k">Institutional Email</span><span class="v"><a href="mailto:jmai@uidaho.edu">jmai@uidaho.edu</a></span></li>
@@ -787,11 +1022,12 @@
         <li><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/ju-mai/">Justin Mai</a></span></li>
         <li><span class="k">Location</span><span class="v">Moscow, ID, USA</span></li>
       </ul>
+      </div>
     </section>
   </main>
 
   <footer>
-    Justin Mai &middot; University of Idaho &middot; Mitchell Lab
+    Justin Mai &middot; Mitchell Lab &middot; University of Idaho
   </footer>
 
   <script>

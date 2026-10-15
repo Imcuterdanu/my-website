@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery - Justin Mai</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0B1020;
+    --surface: #111A30;
+    --surface-2: #0E1628;
+    --ink: #FFFFFF;
+    --muted: #C9D3E8;
+    --accent: #FFFFFF;
+    --accent-soft: #FFFFFF;
+    --accent-deep: #E8E8E8;
+    --glow: #35C4E8;
+    --line: rgba(154, 168, 199, 0.16);
+    --line-light: rgba(154, 168, 199, 0.09);
+    --radius: 12px;
+    --maxw: 1120px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.35);
+    --shadow-md: 0 10px 30px rgba(0,0,0,.45);
+    --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(1200px 500px at 80% -10%, rgba(53, 196, 232, 0.10), transparent 60%),
+      radial-gradient(900px 420px at 0% 0%, rgba(241, 179, 0, 0.08), transparent 55%),
+      linear-gradient(rgba(11,16,32,0.55), rgba(11,16,32,0.55)),
+      url("retina-art.jpg");
+    background-size: auto, auto, auto, 720px auto;
+    background-position: center top, center top, center top, center top;
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+    background-attachment: fixed, fixed, fixed, fixed;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 16.5px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; padding: 0 24px 40px; }
+
+  /* Top bar - back link */
+  .topbar {
+    background: rgba(11, 16, 32, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-sans);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .topbar-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .topbar a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .topbar a:hover { color: var(--ink); }
+  .topbar .tag {
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: .72rem;
+    margin-left: auto;
+  }
+
+  /* Gallery */
+  .gallery-header {
+    padding: 40px 0 8px;
+  }
+  .gallery-header h1 {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .gallery-header h1::before {
+    content: "";
+    width: 38px;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--glow));
+    box-shadow: 0 0 12px rgba(53, 196, 232, .5);
+  }
+  .gallery-header p {
+    color: var(--muted);
+    margin-top: 8px;
+    font-size: 1rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .gallery-item {
+    display: block;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
+  }
+  .gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+  .gallery-item img {
+    width: 100%;
+    display: block;
+  }
+  .gallery-caption {
+    padding: 14px 16px;
+    font-family: var(--font-sans);
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .gallery-caption .hint {
+    font-weight: 400;
+    font-size: .78rem;
+    color: var(--glow);
+    margin-left: 8px;
+    letter-spacing: .04em;
+  }
+
+  /* Footer - matches topbar */
+  footer {
+    background: rgba(11, 16, 32, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid var(--line);
+    color: var(--ink);
+    text-align: center;
+    padding: 22px 24px;
+    font-family: var(--font-sans);
+    font-size: .9rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    main { padding: 0 16px 24px; }
+    .gallery-header h1 { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a href="justin-mai-academic-homepage.html">&larr; Back to Homepage</a>
+      <span class="tag">Gallery</span>
+    </div>
+  </div>
+
+  <main>
+    <div class="gallery-header">
+      <h1>Gallery</h1>
+      <p>A collection of moments from conferences, research presentations, and academic events throughout my scientific journey.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <a class="gallery-item" href="arvo-2023.png" target="_blank" rel="noopener">
+        <img src="arvo-2023.png" alt="ARVO 2023 poster - Structural Diversity of Mitochondria and Quantification of Synaptic Vesicles from Different Neuron Types in the Simplex Retina of Little Skate" loading="lazy">
+
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    Justin Mai &middot; Mitchell Lab &middot; University of Idaho
+  </footer>
+
+</body>
+</html>
